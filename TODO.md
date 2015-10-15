@@ -29,6 +29,7 @@
 * Allow indicators to define labels to show values 
 * Create `panel_component` type for adding arbitrary UI controls to chart
 * Validate that all indicators used within chart contain required vis_* functions on init
+* Clip indicator markings that go outside of corresponding component
 
 #### Dataprovider
 
