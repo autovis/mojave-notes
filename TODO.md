@@ -7,6 +7,8 @@
 * Use `morgan` for better logging
 * Rename `accounts` to `profiles`
 * Prevent bars from being skipped when no ticks arrive during their time span
+* Debug on iOS/Andriod
+* Create page with multiple panels each with a different instrument on a live chart
 
 #### Backtesting
 
@@ -14,6 +16,7 @@
 * Add UI controls for choosing instruments and date range to backtest prior to running
 * Add triangular buttons to prepend/append previous/next bars on loaded chart
 * Use smooth gradient scale for pnl background color on trade table
+* When selecting a trade on left panel, fade opacity of markings of any trades on chart other than one selected
 
 #### Collections and indicator base
 
@@ -42,6 +45,8 @@
 * Create "visual" indicator for sound alerts (`vis:SoundAlert`), takes `bool` input
 * Add `stream:TickThrottle` to handle and consolidate spiking tick volume
 * Create `EntryOrderSim` indicator to easily simulate entry orders
+* Create indicator to proxy trade commands to real broker and receive actual trade events via dataprovider
+  - Apply 'live_only' option so indicator can only be used on live chart and not for backtesting
 
 #### Style
 
