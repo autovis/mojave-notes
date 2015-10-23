@@ -24,13 +24,13 @@
 * Allow a collection to load other collections inline
 * Allow indicators to have generic types (e.g. `^a`)
 * Validate functions/properties defined on indicator definitions (e.g. `synch` and not `sync`)
+* Support `$` directives on indicator sources and parameters, propagate changes on dependencies
 
 #### Charting
 
 * Create and implement `chart_data_backing` object to manage chart's data
 * Allow selecting bars on chart
-* Allow indicators to define labels to show values 
-* Create `panel_component` type for adding arbitrary UI controls to chart
+* Allow indicators to define labels to show values
 * Validate that all indicators used within chart contain required vis_* functions on init
 * Clip indicator markings that go outside of corresponding component
 
