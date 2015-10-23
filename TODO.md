@@ -33,6 +33,7 @@
 * Allow indicators to define labels to show values
 * Validate that all indicators used within chart contain required vis_* functions on init
 * Clip indicator markings that go outside of corresponding component
+* Preserve control values and misc settings in browser's web storage (session storage)
 
 #### Dataprovider
 
