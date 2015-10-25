@@ -34,6 +34,8 @@
 * Validate that all indicators used within chart contain required vis_* functions on init
 * Clip indicator markings that go outside of corresponding component
 * Preserve control values and misc settings in browser's web storage (session storage)
+* Split time cursor to highlight corresp. times on chart across different time frames
+* Create tf:Trade indicator to change time frame of trade events
 
 #### Dataprovider
 
