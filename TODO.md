@@ -41,6 +41,8 @@
 
 * Create `fxcm` datasource to interact with FXCM broker
 * Create `csv` datasource to read/write data to/from local CSV files
+* Rename `fetch` action to `read`, `transmit_data` to `cmd` or `write`
+* Define standard datasource string format and write string->object converter
 
 #### Indicator implementations
 
