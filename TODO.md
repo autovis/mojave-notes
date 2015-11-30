@@ -44,6 +44,12 @@
 * Rename `fetch` action to `read`, `transmit_data` to `cmd` or `write`
 * Define standard datasource string format and write string->object converter
 
+#### JSONOC and JSONOC Support
+
+* Use JSONOC for defining Collections and Charts in place of plain JSON
+* In schema, find easy way to define methods on constructor's prototype
+* Extend stream types to support JSONOC objects that extend "Bar"
+
 #### Indicator implementations
 
 * Fix ZigZag indicator
