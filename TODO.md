@@ -2,8 +2,8 @@
 
 #### General
 
-* Instrument/datetime lookup page - to pull up a chart for arbitrary instrument/datetime combinations
-* Adjust for time zone differences between browser, server, and broker
+* ***Instrument/datetime lookup page - to pull up a chart for arbitrary instrument/datetime combinations***
+* ***Adjust for time zone differences between browser, server, and broker***
 * Use `morgan` for better logging
 * Rename `accounts` to `profiles`
 * Prevent bars from being skipped when no ticks arrive during their time span
@@ -23,6 +23,7 @@
 * Rewrite collection definitions to use object constructors and allow metadata options
 * Allow a collection to load other collections inline
 * Allow indicators to have generic types (e.g. `^a`)
+* Allow streams to support JSONOC-based types
 * Validate functions/properties defined on indicator definitions (e.g. `synch` and not `sync`)
 * Support `$` directives on indicator sources and parameters, propagate changes on dependencies
 
