@@ -49,7 +49,9 @@
 
 * Use JSONOC for defining Collections and Charts in place of plain JSON
 * In schema, find easy way to define methods on constructor's prototype
+* Define `_get_children` method on Base prototype that will gather a list of all arguments recursively
 * Extend stream types to support JSONOC objects that extend "Bar"
+* Allow `_Array` and `_Object` constructors in schema
 
 #### Indicator implementations
 
