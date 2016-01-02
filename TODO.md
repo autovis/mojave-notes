@@ -22,7 +22,6 @@
 
 * Rewrite collection definitions to use object constructors and allow metadata options
 * Allow a collection to load other collections inline
-* Allow indicators to have generic types (e.g. `^a`)
 * Allow streams to support JSONOC-based types
 * Validate functions/properties defined on indicator definitions (e.g. `synch` and not `sync`)
 * Support `$` directives on indicator sources and parameters, propagate changes on dependencies
@@ -33,9 +32,9 @@
 * Allow selecting bars on chart
 * Allow indicators to define labels to show values
 * Validate that all indicators used within chart contain required vis_* functions on init
-* Clip indicator markings that go outside of corresponding component
+* Clip indicator markings that plot outside of corresponding component
 * Preserve control values and misc settings in browser's web storage (session storage)
-* Split time cursor to highlight corresp. times on chart across different time frames
+* Split time cursor to highlight corresp. times on chart across different time frames (use canvas for cursor?)
 * Create tf:Trade indicator to change time frame of trade events
 
 #### Dataprovider
@@ -43,7 +42,6 @@
 * Create `fxcm` datasource to interact with FXCM broker
 * Create `csv` datasource to read/write data to/from local CSV files
 * Rename `fetch` action to `read`, `transmit_data` to `cmd` or `write`
-* Define standard datasource string format and write string->object converter
 
 #### JSONOC and JSONOC Support
 
@@ -55,7 +53,7 @@
 
 #### Indicator implementations
 
-* Fix ZigZag indicator
+* Fix ZigZag indicator and create indicator to detect divergences
 * Create "visual" indicator for sound alerts (`vis:SoundAlert`), takes `bool` input
 * Add `stream:TickThrottle` to handle and consolidate spiking tick volume
 * Create `EntryOrderSim` indicator to easily simulate entry orders
