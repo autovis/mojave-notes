@@ -1,14 +1,14 @@
 ## TODO List
 
-#### General
+#### General / Trivial
 
 * ***Instrument/datetime lookup page - to pull up a chart for arbitrary instrument/datetime combinations***
 * ***Adjust for time zone differences between browser, server, and broker***
-* Use `morgan` for better logging
 * Rename `accounts` to `profiles`
 * Prevent bars from being skipped when no ticks arrive during their time span
-* Debug on iOS/Andriod
 * Create page with multiple panels each with a different instrument on a live chart
+* Debug on iOS/Andriod
+* Use `morgan` for better logging
 
 #### Backtesting
 
@@ -20,11 +20,10 @@
 
 #### Collections and indicator base
 
-* Rewrite collection definitions to use object constructors and allow metadata options
 * Allow a collection to load other collections inline
 * Allow streams to support JSONOC-based types
 * Validate functions/properties defined on indicator definitions (e.g. `synch` and not `sync`)
-* Support `$` directives on indicator sources and parameters, propagate changes on dependencies
+* Find universal solution for propagating unique command and events without using list of previous UUIDs
 
 #### Charting
 
@@ -35,21 +34,21 @@
 * Clip indicator markings that plot outside of corresponding component
 * Preserve control values and misc settings in browser's web storage (session storage)
 * Split time cursor to highlight corresp. times on chart across different time frames (use canvas for cursor?)
-* Create tf:Trade indicator to change time frame of trade events
+* Create `tf:Trade` indicator to change time frame of trade events 
 
 #### Dataprovider
 
+* Make clients extend EventEmitter2 to emit error events
 * Create `fxcm` datasource to interact with FXCM broker
 * Create `csv` datasource to read/write data to/from local CSV files
 * Rename `fetch` action to `read`, `transmit_data` to `cmd` or `write`
 
 #### JSONOC and JSONOC Support
 
-* Use JSONOC for defining Collections and Charts in place of plain JSON
+* Use JSONOC for defining Charts in place of plain JSON
 * In schema, find easy way to define methods on constructor's prototype
 * Define `_get_children` method on Base prototype that will gather a list of all arguments recursively
 * Extend stream types to support JSONOC objects that extend "Bar"
-* Allow `_Array` and `_Object` constructors in schema
 
 #### Indicator implementations
 
