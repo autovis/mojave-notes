@@ -10,6 +10,12 @@
 * Debug on iOS/Andriod
 * Use `morgan` for better logging
 
+#### Error handling and reporting
+
+* Better handling and recovery from uncaught exceptions
+* `ENOTFOUND` and other connection errors from `oanda.js` datasource module
+* Precise error reporting from JSONOC syntax errors
+
 #### Backtesting
 
 * Apply `chart_data_backing` to load chart data faster
@@ -24,6 +30,7 @@
 * Allow streams to support JSONOC-based types
 * Validate functions/properties defined on indicator definitions (e.g. `synch` and not `sync`)
 * Find universal solution for propagating unique command and events without using list of previous UUIDs
+* Revisit `deferred` branch to correctly build collections indepedent of how sources are ordered on JSONOC config 
 
 #### Charting
 
