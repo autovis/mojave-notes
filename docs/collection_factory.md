@@ -38,7 +38,7 @@ A `config` object is passed to the `.create()` method in order to define how the
 - `windowsize` - Set the number of bars to populate for each timestep, and auto-calculate how many bars of each timestep are needed  (for creating static charts).
 - `combine` - If set to true, then the bars belonging to timesteps with higher unit values will "swallow" the bars of those with lower values where datetime values overlap, so that the same time isn't loaded more than once across different timesteps. (default: `true`)
 - `preload` - If true, it will determine for each timestep the minimum number of bars that need to be obtained before the overall resulting data can be considered valid, and it loads those bars first in addition to what it will load based on the other config options.  (default: `false`)
-- `streams` - Pass in an object of streams with keys of inputs to match together with streams. (`combine` will be ignored)
+- `input_streams` - Pass in an object of streams with keys of inputs to match together with streams. (`combine` will be ignored)
 
 ##### Config examples
 
@@ -65,7 +65,7 @@ Bypass everything by instead directly passing in the input streams to use (calli
 {
   source: "oanda",
   instrument: "eurusd",
-  streams: {
+  input_streams: {
     tick: <Stream object>,
     m5: <Stream object>
   }
