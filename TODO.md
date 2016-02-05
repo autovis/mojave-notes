@@ -1,14 +1,13 @@
 ## TODO List
 
-#### General / Trivial
+#### General
 
 * ***Instrument/datetime lookup page - to pull up a chart for arbitrary instrument/datetime combinations***
 * ***Adjust for time zone differences between browser, server, and broker***
 * Rename `accounts` to `profiles`
 * Prevent bars from being skipped when no ticks arrive during their time span
 * Create page with multiple panels each with a different instrument on a live chart
-* Debug on iOS/Andriod
-* Use `morgan` for better logging
+* Unit testing
 
 #### Error handling and reporting
 
@@ -23,6 +22,7 @@
 * Add triangular buttons to prepend/append previous/next bars on loaded chart
 * Use smooth gradient scale for pnl background color on trade table
 * When selecting a trade on left panel, fade opacity of markings of any trades on chart other than one selected
+* In `/backtest` rewrite `show_trade_on_chart()` to rely on `Input`s defined in collection's jsnc
 
 #### Collections and indicator base
 
@@ -66,7 +66,30 @@
 * Create indicator to proxy trade commands to real broker and receive actual trade events via dataprovider
   - Apply 'live_only' option so indicator can only be used on live chart and not for backtesting
 
-#### Style
+#### ES6 [with [support status](https://kangax.github.io/compat-table/es6/)] / ESLint / Idiomatic
+
+* Use `Promise`s where it makes better sense than `async`
+* Use arrow function notation for small, one-liner functions `(x => x + 1)` [supported]
+* Use `let` and `const` in place of `var` where applicable [supported]
+* Refactor functions to use tail calls where possible [unsupported]
+* Use destructuring assignments where possible [unsupported]
+* Use `_.create()` in place of `new` in non-indicator (internal) code
+* Use [Rest and Spread](https://github.com/lukehoban/es6features#default--rest--spread) for function calls [node unsupported]
+* Use template strings [supported]:
+  - Component titles
+  - Label text
+* Use Map/Set/WeakMap/WeakSet where applicable [supported]:
+  - Maintaining active clients/connections in dataprovider and datasource modules
+* Use `Proxy` to create objects [chrome/node support soon]:
+  - stream's `simple()` and `substream()` methods
+  
+#### UI Style
 
 * Move `get_viewport()` function definitions into `uitools`
 * Clean up CSS, finish defining light/dark themes
+
+#### Trivial
+
+* Use `morgan` for better logging
+* Replace `grunt-bower-requirejs` with something simpler
+* Debug on iOS/Andriod
