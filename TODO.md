@@ -30,18 +30,24 @@
 * Allow streams to support JSONOC-based types
 * Validate functions/properties defined on indicator definitions (e.g. `synch` and not `sync`)
 * Find universal solution for propagating unique command and events without using list of previous UUIDs
-* Revisit `deferred` branch to correctly build collections indepedent of how sources are ordered on JSONOC config 
+* Revisit `deferred` branch to correctly build collections indepedent of how sources are ordered on JSONOC config
+* Report metrics on collection execution:
+  - duration and throughput (bars/sec)
+  - optionally record millisecond start/stop times for each indicator `update()` call
 
 #### Charting
 
 * Create and implement `chart_data_backing` object to manage chart's data
+  - Track data associated with all indicator markings on chart grouped by component
+  - provide API for obtaining slices of the data sets
 * Allow selecting bars on chart
 * Allow indicators to define labels to show values
 * Validate that all indicators used within chart contain required vis_* functions on init
 * Clip indicator markings that plot outside of corresponding component
 * Preserve control values and misc settings in browser's web storage (session storage)
 * Split time cursor to highlight corresp. times on chart across different time frames (use canvas for cursor?)
-* Create `tf:Trade` indicator to change time frame of trade events 
+* Create `tf:Trade` indicator to change time frame of trade events
+* Create canvas implementation of chart
 
 #### Dataprovider
 
@@ -68,7 +74,7 @@
 
 #### ES6 [with [support status](https://kangax.github.io/compat-table/es6/)] / ESLint / Idiomatic
 
-* Use `Promise`s where it makes better sense than `async`
+* Use `Promise`s where it makes better sense than `async` [supported]
 * Use arrow function notation for small, one-liner functions `(x => x + 1)` [supported]
 * Use `let` and `const` in place of `var` where applicable [supported]
 * Refactor functions to use tail calls where possible [unsupported]
