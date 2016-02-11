@@ -99,3 +99,8 @@
 * Use `morgan` for better logging
 * Replace `grunt-bower-requirejs` with something simpler
 * Debug on iOS/Andriod
+* Update lodash:
+  - replace `_.object()` with `_.fromPairs()`
+  - replace `_.pairs()` with `_.toPairs()`
+  - replace `_.unique` with `_.uniq`
+  - replace `_.all` with `_.every`
