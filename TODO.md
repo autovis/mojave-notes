@@ -34,6 +34,7 @@
 * Report metrics on collection execution:
   - duration and throughput (bars/sec)
   - optionally record millisecond start/stop times for each indicator `update()` call
+* Optimize: track indicator defs with same inputs & params and consolidate them down to same instance
 
 #### Charting
 
