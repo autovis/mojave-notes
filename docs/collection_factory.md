@@ -31,7 +31,8 @@ The purpose is to make creating/initializing a collection easier by allowing you
 A `config` object is passed to the `.create()` method in order to define how the collection will behave.   
 
 - `source` - The name of the data source module to use to obtain the data. (required)
-- `instrument` - Defines the instrument for which data should be obtained for modules that connect to brokers or other APIs.
+- `instrument` - Instrument (or array of instruments) that API modules should obtain data from, or instrument to associate with data from non-API modules (CSV, Databases).
+- `timestep` - Timestep (or array of timesteps) to which the collection should be applied.
 - `vars` - An object defining a set a variables and their values to be passed in to the collection, which are then referenced from the collection using the `Var()` constructor in place of literal values.
 - `range` - Use a range of datetimes to obtain data between a start and end datetime.  Expects an array defined as `[<start>, <end>]`. or `[<start>]` where all values are of JSDate type, and `<end>` defaults to now if no value is provided.  If an object is provided, then described array is expected as each value, and corresponding timesteps on which to apply range as the key.
 - `count` - If an integer, defines the number of last bars to get for all inputs, or if an object defines the count value for each individual input based on key.
