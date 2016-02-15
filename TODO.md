@@ -26,7 +26,8 @@
 
 #### Collections and indicator base
 
-* Allow a collection to load other collections inline
+* Allow a collection to load other collections inline (composition)
+* Allow a collection to extend another using `Extends("base_collection_name")`, allow overriding of inds and vars
 * Allow streams to support JSONOC-based types
 * Validate functions/properties defined on indicator definitions (e.g. `synch` and not `sync`)
 * Find universal solution for propagating unique command and events without using list of previous UUIDs
@@ -49,6 +50,7 @@
 * Split time cursor to highlight corresp. times on chart across different time frames (use canvas for cursor?)
 * Create `tf:Trade` indicator to change time frame of trade events
 * Create canvas implementation of chart
+* Use `vis_implement` property on indicators to apply rendering functions of another indicator
 
 #### Dataprovider
 
