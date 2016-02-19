@@ -2,11 +2,18 @@
 
 The `dataprovider` module serves to provide data to a requesting client in a consistent manner, regardless of the source the client is requesting the data from.  The client issues a request for data from a particular `source` along with various other parameters, and `dataprovider` serves the request while handling all 
 
-Types of data sources:
+#### Datasources
 
-Datasource Properties:
-- `use_interpreter` - (bool) `true` if the module should apply the corresponding interpreter indicator to the incoming data in order to convert each record's fields into their correct types.
-- `single_stream` - (bool) `true` if the module only provides a single steam of data for the source specified, otherwise on of several stream may be offered depending on other parameters (instrument, timestep).  When `true`, all parameters provided by client will be forcefully associated to the data returned.
+A datasource module is a plug-in that connects to the back of the server-side dataprovider, and each defines a separate implementation for how to produce and consume stream data.  They are the ultimate backend that the application uses to connect to brokers, databases, and local file storage to send and receive data on the server-side.
+
+Datasource modules define a `properties` object that consists of immutable key/value properties to help describe that behavior of that module and how it handles data.  Every module must define a value for each of the properties below -- no default values are assumed.
+
+- `writable` - (bool) `true` if `put()` method can be called to send data to the module, for storage or transmission elsewhere.
+- `tick_subscriptions` - (bool) `true` if `subscribe()` and `unsubscribe()` methods can be called to control subscriptions to real-time ticks on an `instrument`.
+- `dynamic_api` - (bool) `true` if dynamic queries based on `instrument`, `timeframe`, (`count` || `range`) can be used to obtain data.
+- `single_stream` - (bool) `true` if the `source` parameter alone reduces the possible output streams to just one stream of data.
+- `accepts_order` - (bool) `true` if the module is a broker bridge and accepts order commands via the `place_order()` method.
+- `use_interpreter` - (bool) `true` if the module produces only string-type fields for each record, and an interpreter must be applied to convert records into correct native types.
 
 #### Methods
 
