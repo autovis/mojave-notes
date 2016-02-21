@@ -18,9 +18,9 @@
 #### Backtesting
 
 * Apply `chart_data_backing` to load chart data faster
+* Allow bar-by-bar forward and backward replay of a backtesting session using timeline
 * Add UI controls for choosing instruments and date range to backtest prior to running
 * Add triangular buttons to prepend/append previous/next bars on loaded chart
-* Use smooth gradient scale for pnl background color on trade table
 * When selecting a trade on left panel, fade opacity of markings of any trades on chart other than one selected
 * In `/backtest` rewrite `show_trade_on_chart()` to rely on `Input`s defined in collection's jsnc
 
@@ -29,6 +29,7 @@
 * Allow a collection to load other collections inline (composition)
 * Allow a collection to extend another using `Extends("base_collection_name")`, allow overriding of inds and vars
 * Allow streams to support JSONOC-based types
+* Add `Fork` jsnc that will auto-split a branch of indicators into parallel copies fed by different input streams
 * Validate functions/properties defined on indicator definitions (e.g. `synch` and not `sync`)
 * Find universal solution for propagating unique command and events without using list of previous UUIDs
 * Revisit `deferred` branch to correctly build collections indepedent of how sources are ordered on JSONOC config
@@ -49,7 +50,7 @@
 * Preserve control values and misc settings in browser's web storage (session storage)
 * Split time cursor to highlight corresp. times on chart across different time frames (use canvas for cursor?)
 * Create `tf:Trade` indicator to change time frame of trade events
-* Create canvas implementation of chart
+* Create `canvas` version of chart, implement scrolling
 * Use `vis_implement` property on indicators to apply rendering functions of another indicator
 
 #### Dataprovider
@@ -107,3 +108,5 @@
   - replace `_.pairs()` with `_.toPairs()`
   - replace `_.unique` with `_.uniq`
   - replace `_.all` with `_.every`
+* Allow indicators to have no input streams defined (`bool:true`)
+* In `/backtest`, Use smooth gradient scale for pnl background color on trade table
