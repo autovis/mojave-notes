@@ -56,7 +56,7 @@ Trade events that come from broker or trade simulator
   - `exit_price`
   - `pips`
 
-`stop_updated`: stop-less order price has been updated
+`stop_updated`: stop-loss order price has been updated
   - `evt_uuid` - newly-generated unique ID of this event
   - `pos_uuid` - existing unique ID of updated position
   - `date`
@@ -67,3 +67,24 @@ Trade events that come from broker or trade simulator
   - `pos_uuid` - existing unique ID of updated position
   - `date`
   - `price`
+
+When writing an indicator that accepts input stream types of either `trade_evts` or `trade_cmds`, care must be taken to only respond to the first instance of each event or command per unique `evt_uuid` or `cmd_uuid` respectively, since a bar value will accumulate a list of all instances that were generated within the timestep window and call `on_bar_update()` with the same growing list on each tick.  To respond only to the first event that arrives, a function is defined within `initialize()` that returns `true` if an item has not been seen before and tracks it using a fixed-size array:
+```
+// filter on items that haven't been seen in 'n' unique instances
+var seen_items = Array(20), seen_idx = 0;
+this.is_first_seen = function(item) {
+    if (seen_items.indexOf(item) > -1) return false;
+    seen_items[seen_idx % seen_items.length] = item;
+    seen_idx += 1;
+    return true;
+};
+```
+This function may then be used from `on_bar_update()` to filter new events (or commands):
+```
+_.each(event_stream.get(), function(evt) {
+    if (!this.is_first_seen(evt[1].evt_uuid)) return; // skip events already processed
+
+    // ... process event ...
+
+});
+```
