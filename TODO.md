@@ -2,6 +2,7 @@
 
 #### General
 
+* ***Log all orders placed on FXCM Trading Station***
 * ***Instrument/datetime lookup page - to pull up a chart for arbitrary instrument/datetime combinations***
 * ***Adjust for time zone differences between browser, server, and broker***
 * Rename `accounts` to `profiles`
@@ -37,6 +38,7 @@
   - duration and throughput (bars/sec)
   - optionally record millisecond start/stop times for each indicator `update()` call
 * Optimize: track indicator defs with same inputs & params and consolidate them down to same instance
+* Collection inputs can be collated by date
 
 #### Charting
 
