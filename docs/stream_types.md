@@ -50,6 +50,7 @@ Trade events that come from broker or trade simulator
 `trade_end`: end of a trade
   - `evt_uuid` - newly-generated unique ID of this event
   - `pos_uuid` - existing unique ID of closed position
+  - `label`
   - `date`
   - `direction` (-1, 1)
   - `reason` (stop, limit, exit)
@@ -61,12 +62,14 @@ Trade events that come from broker or trade simulator
 `stop_updated`: stop-loss order price has been updated
   - `evt_uuid` - newly-generated unique ID of this event
   - `pos_uuid` - existing unique ID of updated position
+  - `label`
   - `date`
   - `price`
   
 `limit_updated`: take-profit order price has been updated
   - `evt_uuid` - newly-generated unique ID of this event
   - `pos_uuid` - existing unique ID of updated position
+  - `label`
   - `date`
   - `price`
 
