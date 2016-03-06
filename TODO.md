@@ -3,18 +3,17 @@
 #### General
 
 * ***Log all orders placed on FXCM Trading Station***
-* ***Instrument/datetime lookup page - to pull up a chart for arbitrary instrument/datetime combinations***
-* ***Adjust for time zone differences between browser, server, and broker***
 * Rename `accounts` to `profiles`
 * Prevent bars from being skipped when no ticks arrive during their time span
 * Create page with multiple panels each with a different instrument on a live chart
+* Replace `bower` with `npm` and ES6 modules on client
 * Unit testing
 
 #### Error handling and reporting
 
 * Better handling and recovery from uncaught exceptions
 * `ENOTFOUND` and other connection errors from `oanda.js` datasource module
-* Precise error reporting from JSONOC syntax errors
+* Precise error reporting for JSONOC errors originating from constructors
 
 #### Backtesting
 
@@ -33,12 +32,12 @@
 * Add `Fork` jsnc that will auto-split a branch of indicators into parallel copies fed by different input streams
 * Validate functions/properties defined on indicator definitions (e.g. `synch` and not `sync`)
 * Find universal solution for propagating unique command and events without using list of previous UUIDs
-* Revisit `deferred` branch to correctly build collections indepedent of how sources are ordered on JSONOC config
+* Revisit `deferred` branch to correctly build collections independent of how sources are ordered on JSONOC config
 * Report metrics on collection execution:
   - duration and throughput (bars/sec)
   - optionally record millisecond start/stop times for each indicator `update()` call
 * Optimize: track indicator defs with same inputs & params and consolidate them down to same instance
-* Collection inputs can be collated by date
+* Collection inputs can be merged and collated by date
 
 #### Charting
 
@@ -81,7 +80,6 @@
 #### ES6 [with [support status](https://kangax.github.io/compat-table/es6/)] / ESLint / Idiomatic
 
 * Use `Promise`s where it makes better sense than `async` [supported]
-* Use arrow function notation for small, one-liner functions `(x => x + 1)` [supported]
 * Use `let` and `const` in place of `var` where applicable [supported]
 * Refactor functions to use tail calls where possible [unsupported]
 * Use destructuring assignments where possible [unsupported]
