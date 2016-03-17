@@ -53,6 +53,21 @@
 * Create `tf:Trade` indicator to change time frame of trade events
 * Create `canvas` version of chart, implement scrolling
 * Use `vis_implement` property on indicators to apply rendering functions of another indicator
+* Define `Selection` constructor for creating user-created datasets to use for training SVMs and ANNs
+```
+Selection({
+  name: "Trend entry trigger",
+  base: "trend_en_base", // type must be bool or dir
+  dataset: "trend_entry", // $root/data/sets/trend_entry
+  color: "#ffdd00",
+  inputs: {
+    obv: Ind("obv", "fn:Slope"), // allow embedded indicators
+  },
+  tags: {
+    notes: MultiText()
+  }
+})
+```
 
 #### Dataprovider
 
@@ -76,6 +91,7 @@
 * Create `EntryOrderSim` indicator to easily simulate entry orders
 * Create indicator to proxy trade commands to real broker and receive actual trade events via dataprovider
   - Apply 'live_only' option so indicator can only be used on live chart and not for backtesting
+* `bool:SVM` and `dir:SVM` for creating SVMs and applying training datasets
 
 #### ES6 [with [support status](https://kangax.github.io/compat-table/es6/)] / ESLint / Idiomatic
 
