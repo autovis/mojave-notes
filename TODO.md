@@ -68,6 +68,7 @@ Selection({
   }
 })
 ```
+* Add `set_maxsize()` method 
 
 #### Dataprovider
 
