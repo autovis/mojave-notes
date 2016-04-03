@@ -2,16 +2,16 @@
 
 #### General
 
-* ***Log all orders placed on FXCM Trading Station***
-* Rename `accounts` to `profiles`
-* Prevent bars from being skipped when no ticks arrive during their time span
 * Create page with multiple panels each with a different instrument on a live chart
-* Replace `bower` with `npm` and ES6 modules on client
-* Unit testing
 * The Great Renaming:
   - Indicator rendering funcs: `vis_` => `plot_`, Indicator names: `vis:*` => `plot:*`
   - `chart_setup` => `chart_template`, `setup` => `template`
-  - `Collection` => `StreamGraph`, `indicator_collection` => `stream_graph`
+  - `Collection` => `StreamGraph`, `indicator_collection` => `stream_graph`, `collection`/`coll` => `sgraph`
+  - `vis:Price` => `vis:Candle`
+  - `config/accounts` => `config/profiles`
+* Prevent bars from being skipped when no ticks arrive during their time span
+* Replace `bower` with `npm` and ES6 modules on client
+* Unit testing
 
 #### Error handling and reporting
 
@@ -42,7 +42,7 @@
   - optionally record millisecond start/stop times for each indicator `update()` call
 * Optimize: track indicator defs with same inputs & params and consolidate them down to same instance
 * Collection inputs can be merged and collated by date
-* 
+* Define "delegates" as an async source type used in place of indicators 
 
 #### Charting
 
@@ -119,6 +119,7 @@ Selection({
 
 * Move `get_viewport()` function definitions into `uitools`
 * Clean up CSS, finish defining light/dark themes
+* Save/load page preferences to/from local storage
 
 #### Trivial
 
