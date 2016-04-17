@@ -10,6 +10,7 @@
   - `vis:Price` => `vis:Candle`
   - `config/accounts` => `config/profiles`
   - Indicators: `fn:*` => `num:*`
+  - `selection` => `dataset`, `inputs` => `features`, `tags` => `targets`
 * Prevent bars from being skipped when no ticks arrive during their time span
 * Replace `bower` with `npm` and ES6 modules on client
 * Unit testing
