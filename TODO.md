@@ -34,15 +34,14 @@
 
 * Allow a collection to load other collections inline (composition)
 * Allow a collection to extend another using `Extends("base_collection_name")`, allow overriding of inds and vars
-* Allow streams to support JSONOC-based types
 * Add `Fork` jsnc that will auto-split a branch of indicators into parallel copies fed by different input streams
 * Validate functions/properties defined on indicator definitions (e.g. `synch` and not `sync`)
 * Find universal solution for propagating unique command and events without using list of previous UUIDs
 * Revisit `deferred` branch to correctly build collections independent of how sources are ordered on JSONOC config
 * Report metrics on collection execution:
   - duration and throughput (bars/sec)
-  - optionally record millisecond start/stop times for each indicator `update()` call
-* Optimize: track indicator defs with same inputs & params and consolidate them down to same instance
+  - optionally record millisecond start/stop times for each indicator `update()` call (profiling)
+* Optimize: track indicator defs with same inputs & params and consolidate them down to use a single instance
 * Collection inputs can be merged and collated by date
 * Define "delegates" as an async source type used in place of indicators 
 
@@ -51,8 +50,7 @@
 * Create and implement `chart_data_backing` object to manage chart's data
   - Track data associated with all indicator markings on chart grouped by component
   - provide API for obtaining slices of the data sets
-* Allow selecting bars on chart
-* Allow indicators to define labels to show values
+* Allow indicators to define labels and their position on data array to show values
 * Validate that all indicators used within chart contain required vis_* functions on init
 * Clip indicator markings that plot outside of corresponding component
 * Preserve control values and misc settings in browser's web storage (session storage)
@@ -60,36 +58,20 @@
 * Create `tf:Trade` indicator to change time frame of trade events
 * Create `canvas` version of chart, implement scrolling
 * Use `vis_implement` property on indicators to apply rendering functions of another indicator
-* Define `Selection` constructor for creating user-created datasets to use for training SVMs and ANNs
-```
-Selection({
-  name: "Trend entry trigger",
-  base: "trend_en_base", // type must be bool or dir
-  dataset: "trend_entry", // $root/data/sets/trend_entry
-  color: "#ffdd00",
-  inputs: {
-    obv: Ind("obv", "fn:Slope"), // allow embedded indicators
-  },
-  tags: {
-    notes: MultiText()
-  }
-})
-```
 * Add `set_maxsize()` method 
 
 #### Dataprovider
 
-* Make clients extend EventEmitter2 to emit error events
 * Create `fxcm` datasource to interact with FXCM broker
 * Create `csv` datasource to read/write data to/from local CSV files
 * Rename `fetch` action to `read`, `transmit_data` to `cmd` or `write`
+* Bug: "Unexpected end of input" error when stream return no data (i.e. when forcing weekend day on chart)
 
 #### JSONOC and JSONOC Support
 
 * Use JSONOC for defining Charts in place of plain JSON
 * In schema, find easy way to define methods on constructor's prototype
 * Define `_get_children` method on Base prototype that will gather a list of all arguments recursively
-* Extend stream types to support JSONOC objects that extend "Bar"
 
 #### Indicator implementations
 
@@ -100,6 +82,7 @@ Selection({
 * Create indicator to proxy trade commands to real broker and receive actual trade events via dataprovider
   - Apply 'live_only' option so indicator can only be used on live chart and not for backtesting
 * `bool:SVM` and `dir:SVM` for creating SVMs and applying training datasets
+* `reg:Sin` for sinusoidal regressions
 
 #### ES6 [with [support status](https://kangax.github.io/compat-table/es6/)] / ESLint / Idiomatic
 
@@ -133,5 +116,3 @@ Selection({
   - replace `_.pairs()` with `_.toPairs()`
   - replace `_.unique` with `_.uniq`
   - replace `_.all` with `_.every`
-* Allow indicators to have no input streams defined (`bool:true`)
-* In `/backtest`, Use smooth gradient scale for pnl background color on trade table
