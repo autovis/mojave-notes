@@ -53,7 +53,7 @@
 * Allow indicators to define labels and their position on data array to show values
 * Validate that all indicators used within chart contain required vis_* functions on init
 * Clip indicator markings that plot outside of corresponding component
-* Preserve control values and misc settings in browser's web storage (session storage)
+* Preserve misc settings in browser's web storage (session storage)
 * Split time cursor to highlight corresp. times on chart across different time frames (use canvas for cursor?)
 * Create `tf:Trade` indicator to change time frame of trade events
 * Create `canvas` version of chart, implement scrolling
@@ -72,6 +72,7 @@
 * Use JSONOC for defining Charts in place of plain JSON
 * In schema, find easy way to define methods on constructor's prototype
 * Define `_get_children` method on Base prototype that will gather a list of all arguments recursively
+* Fix polymorphism (import children of a constructor that are within same namespace)
 
 #### Indicator implementations
 
@@ -89,15 +90,17 @@
 * Use `Promise`s where it makes better sense than `async` [supported]
 * Use `let` and `const` in place of `var` where applicable [supported]
 * Refactor functions to use tail calls where possible [unsupported]
-* Use destructuring assignments where possible [unsupported]
+* Use destructuring assignments where possible [supported]
 * Use `_.create()` in place of `new` in non-indicator (internal) code
-* Use [Rest and Spread](https://github.com/lukehoban/es6features#default--rest--spread) for function calls [node unsupported]
+* Use [Rest and Spread](https://github.com/lukehoban/es6features#default--rest--spread) for function calls [supported]
 * Use template strings [supported]:
   - Component titles
   - Label text
 * Use Map/Set/WeakMap/WeakSet where applicable [supported]:
   - Maintaining active clients/connections in dataprovider and datasource modules
-* Use `Proxy` to create objects [chrome/node support soon]:
+* Use `Proxy` to validate and interpret object access [supported]:
+  - validating indicator `context` and `params`
+  - use proxy in `params` to resolve JSONOC constructors
   - stream's `simple()` and `substream()` methods
   
 #### UI Style
