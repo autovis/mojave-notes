@@ -44,6 +44,7 @@
 * Optimize: track indicator defs with same inputs & params and consolidate them down to use a single instance
 * Collection inputs can be merged and collated by date
 * Define "delegates" as an async source type used in place of indicators 
+* Add optional `on_bar_open()` and `on_bar_close()` functions to indicators
 
 #### Charting
 
