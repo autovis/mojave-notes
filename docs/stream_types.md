@@ -1,14 +1,22 @@
 ### Geometric Entities
 
-##### `trendlines` - Array of objects, each defining a trend line.  Line formula based on using bar index for x, and raw value for y
+##### `mark_evts` - Array of events creating/modifying/cancelling geometric markings
 
-Object properties:
-  - `type` - one of: `major-upper`, `major-lower`, `minor-upper`, `minor-lower`
+`create`
+  - `uuid` - newly-generated unique ID of geometric marking
+  - `type` - one of: `regression`, `hline`, `vline`, `band`
+  - `tags` - array of tags classifying geometric object
   - `slope` - slope of trend line
   - `yint` - y-intercept of trend line
   - `start` - start bar of trend line
-  - `end` - end bar of trend line (optional)
   - `pearson` - pearson coefficient derived from regression line (optional)
+
+`modify`: modify properties of existing geometric marking
+  - `uuid` - existing unique ID of geometric marking to modify
+  - *property* - property to be added or overridden by this event
+  - 
+`cancel`: cancel an existing geometric marking
+  - `uuid` - existing unique ID of geometric marking to cancel
   
 ### Trade Events/Commands 
 
