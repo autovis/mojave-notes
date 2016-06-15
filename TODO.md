@@ -78,7 +78,7 @@
 
 #### Indicator implementations
 
-* Fix ZigZag indicator and create indicator to detect divergences
+* Create indicator to detect divergences using ZigZag
 * Create "visual" indicator for sound alerts (`vis:SoundAlert`), takes `bool` input
 * Add `stream:TickThrottle` to handle and consolidate spiking tick volume
 * Create `EntryOrderSim` indicator to easily simulate entry orders
