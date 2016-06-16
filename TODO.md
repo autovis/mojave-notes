@@ -23,7 +23,7 @@
 
 #### Backtesting
 
-* Apply `chart_data_backing` to load chart data faster
+* Apply `chart_data_backing` to manage chart data beyond what is visible
 * Allow bar-by-bar forward and backward replay of a backtesting session using timeline
 * Add UI controls for choosing instruments and date range to backtest prior to running
 * Add triangular buttons to prepend/append previous/next bars on loaded chart
@@ -61,6 +61,13 @@
 * Create `canvas` version of chart, implement scrolling
 * Use `vis_implement` property on indicators to apply rendering functions of another indicator
 * Add `set_maxsize()` method 
+* Add `throttle` option to indicators to delay redraws on slow rendering
+* Indicator to render speed gradients behind tick charts
+* Keyboard navigation with WASD:
+  - `wasd`: pan up/down/left/right
+  - shift + `a`|`d`: expand bars wider/narrower respectively
+  - shift + `w`|`s`: zoom in/out respectively
+  - `esc` to reset nav state to default
 
 #### Dataprovider
 
@@ -75,6 +82,8 @@
 * In schema, find easy way to define methods on constructor's prototype
 * Define `_get_children` method on Base prototype that will gather a list of all arguments recursively
 * Fix polymorphism (import children of a constructor that are within same namespace)
+* Create category of constructors to be used in place of indicator params where allowed (i.e. `Match()`)
+* Create `mode-jsonoc.js` for ace editor to interpret JSONOC code and do syntax coloring
 
 #### Indicator implementations
 
@@ -84,8 +93,13 @@
 * Create `EntryOrderSim` indicator to easily simulate entry orders
 * Create indicator to proxy trade commands to real broker and receive actual trade events via dataprovider
   - Apply 'live_only' option so indicator can only be used on live chart and not for backtesting
-* `bool:SVM` and `dir:SVM` for creating SVMs and applying training datasets
 * `reg:Sin` for sinusoidal regressions
+
+#### Machine learning
+
+* `bool:SVM` and `dir:SVM` for creating SVMs and applying training datasets
+* Complete dataset view/edit page with scatterplot matrix vis and chart view
+* Store dataset configurations in postgres; edit base condition and feature sets using ace
 
 #### ES6 [with [support status](https://kangax.github.io/compat-table/es6/)] / ESLint / Idiomatic
 
@@ -109,15 +123,9 @@
 
 * Move `get_viewport()` function definitions into `uitools`
 * Clean up CSS, finish defining light/dark themes
-* Save/load page preferences to/from local storage
 
 #### Trivial
 
 * Use `morgan` for better logging
 * Replace `grunt-bower-requirejs` with something simpler
 * Debug on iOS/Andriod
-* Update lodash:
-  - replace `_.object()` with `_.fromPairs()`
-  - replace `_.pairs()` with `_.toPairs()`
-  - replace `_.unique` with `_.uniq`
-  - replace `_.all` with `_.every`
