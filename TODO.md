@@ -37,15 +37,14 @@
 * Add `Fork` jsnc that will auto-split a branch of indicators into parallel copies fed by different input streams
 * Validate functions/properties defined on indicator definitions (e.g. `synch` and not `sync`)
 * Find universal solution for propagating unique command and events without using list of previous UUIDs
-* Revisit `deferred` branch to correctly build collections independent of how sources are ordered on JSONOC config
 * Report metrics on collection execution:
   - duration and throughput (bars/sec)
   - optionally record millisecond start/stop times for each indicator `update()` call (profiling)
 * Optimize: track indicator defs with same inputs & params and consolidate them down to use a single instance
 * Collection inputs can be merged and collated by date
-* Define "delegates" as an async source type used in place of indicators 
+* Define "delegates" as an async source type used in place of indicators (as new SrcType: Delegate)
 * Add optional `on_bar_open()` and `on_bar_close()` functions to indicators
-* Change constructor of indicator_instance to use parameters: ([srcs], indname, param1, param2, ...)
+* Change constructor of indicator_instance to use parameter format: ([srcs], indname, param1, param2, ...)
 
 #### Charting
 
@@ -114,6 +113,7 @@
   - Label text
 * Use Map/Set/WeakMap/WeakSet where applicable [supported]:
   - Maintaining active clients/connections in dataprovider and datasource modules
+  - Use Set for `tsteps` property in indicator update event object
 * Use `Proxy` to validate and interpret object access [supported]:
   - validating indicator `context` and `params`
   - use proxy in `params` to resolve JSONOC constructors
