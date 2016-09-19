@@ -32,6 +32,7 @@
 
 #### Collections and indicator base
 
+* Create new synch type that will behaves like "a" on all inputs in group, but only first firing creates new bar
 * Allow a collection to load other collections inline (composition)
 * Allow a collection to extend another using `Extends("base_collection_name")`, allow overriding of inds and vars
 * Add `Fork` jsnc that will auto-split a branch of indicators into parallel copies fed by different input streams
@@ -48,6 +49,7 @@
 
 #### Charting
 
+* Fix issue where imports do not work on matrix components (see 'broken' on basic_mtf_strategy_chart)
 * Create and implement `chart_data_backing` object to manage chart's data
   - Track data associated with all indicator markings on chart grouped by component
   - provide API for obtaining slices of the data sets
