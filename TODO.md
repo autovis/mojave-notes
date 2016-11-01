@@ -4,10 +4,7 @@
 
 * Create page with multiple panels each with a different instrument on a live chart
 * The Great Renaming:
-  - Indicator rendering funcs: `vis_` => `plot_`, Indicator names: `vis:*` => `plot:*`
-  - `chart_setup` => `chart_template`, `setup` => `template`
   - `Collection` => `StreamGraph`, `indicator_collection` => `stream_graph`, `collection`/`coll` => `sgraph`
-  - `vis:Price` => `vis:Candle`
   - `config/accounts` => `config/profiles`
   - Indicators: `fn:*` => `num:*`
   - `selection` => `dataset`, `inputs` => `features`, `tags` => `targets`
@@ -44,7 +41,7 @@
 * Optimize: track indicator defs with same inputs & params and consolidate them down to use a single instance
 * Collection inputs can be merged and collated by date
 * Define "delegates" as an async source type used in place of indicators (as new SrcType: Delegate)
-* Add optional `on_bar_open()` and `on_bar_close()` functions to indicators
+* Add optional `on_bar_open()` function to indicators (`on_bar_close()` is problematic)
 * Change constructor of indicator_instance to use parameter format: ([srcs], indname, param1, param2, ...)
 
 #### Charting
@@ -69,6 +66,7 @@
   - shift + `a`|`d`: expand bars wider/narrower respectively
   - shift + `w`|`s`: zoom in/out respectively
   - `esc` to reset nav state to default
+* Implement `
 
 #### Dataprovider
 
